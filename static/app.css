@@ -1,0 +1,70 @@
+img {
+	width: 75px;
+	height: 75px;
+}
+
+body {
+	background-color: #0057ff;
+	font-family: 'Work Sans', sans-serif;
+	color: white;
+	margin-left: 20px;
+	margin-top: 20px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-family: 'Crimson Text', serif;
+}
+
+li a {
+	color: rgba(255, 255, 255, 0.5);
+}
+
+li::marker {
+	content: counter(list-item) '› ';
+	color: hotpink;
+}
+
+li a:hover {
+	color: white;
+}
+
+.button {
+	margin-top: 10px;
+}
+
+.li-list {
+	color: rgba(255, 255, 255, 0.5);
+}
+
+.li-list:hover {
+	color: white;
+	text-decoration: none;
+}
+
+#go-back-btn {
+	font-style: italic;
+	margin-top: 10px;
+}
+
+.home-btn {
+	color: rgba(255, 255, 255, 0.5);
+}
+.home-btn:hover {
+	color: white;
+	text-decoration: none;
+}
+
+.username {
+	font-size: 2rem;
+	font-family: 'Crimson Text', serif;
+}
+
+.card {
+	background-color: #0057ff;
+	border: none;
+}

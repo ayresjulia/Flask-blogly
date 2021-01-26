@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link
+			rel="stylesheet"
+			href="https://unpkg.com/bootstrap/dist/css/bootstrap.css"
+		/>
+		<link
+			href="https://fonts.googleapis.com/css?family=Crimson+Text|Work+Sans:400,700"
+			rel="stylesheet"
+		/>
+		<link rel="stylesheet" href="/static/app.css" />
+		<title>User Details</title>
+	</head>
+	<body>
+		<div class="card" style="width: 18rem">
+			<img src="{{user.image_url}}" class="card-img-top img-fluid" />
+			<div class="card-body">
+				<h4 class="card-title">
+					{{user.first_name}} {{user.last_name}}
+				</h4>
+				<p class="card-text">
+					What a great person! Loves fishing, Harry Potter and Lorem
+					ipsum dolor.
+				</p>
+				<form>
+					<button
+						formaction="/users/{{user.id}}/edit"
+						class="btn btn-light"
+					>
+						Edit
+					</button>
+					<button
+						formaction="/users/{{user.id}}/delete"
+						formmethod="POST"
+						class="btn btn-light"
+					>
+						Delete
+					</button>
+					<div id="go-back-btn">
+						<a class="home-btn" href="/users">Back to Home page</a>
+					</div>
+				</form>
+			</div>
+		</div>
+		<script
+			src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+			integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
+			crossorigin="anonymous"
+		></script>
+	</body>
+</html>
