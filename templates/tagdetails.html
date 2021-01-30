@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="https://unpkg.com/bootstrap/dist/css/bootstrap.css" />
+		<link href="https://fonts.googleapis.com/css?family=Crimson+Text|Work+Sans:400,700" rel="stylesheet" />
+		<link rel="stylesheet" href="/static/app.css" />
+		<title>Edit Tag</title>
+	</head>
+	<body>
+		<h1>All {{tag.name}} posts</h1>
+
+		<ul>
+			{% for post in tag.posts %}
+			<li><a href="/posts/{{post.id}}">{{post.title}}</a></li>
+			{% endfor %}
+		</ul>
+
+		<form>
+			<button formaction="/tags/{{tag.id}}/edit" class="btn btn-secondary">Update Tagged posts</button>
+			<button formmethod="POST" formaction="/tags/{{tag.id}}/delete" class="btn btn-secondary">Delete Tag</button>
+		</form>
+		<div class="go-back-btn">
+			<a class="home-btn" href="/tags">Back to Tags page</a>
+		</div>
+		<script
+			src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+			integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
+			crossorigin="anonymous"
+		></script>
+	</body>
+</html>

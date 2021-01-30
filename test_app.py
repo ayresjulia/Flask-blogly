@@ -57,4 +57,15 @@ class UserViewsTestCase(TestCase):
 
             self.assertEqual(resp.status_code, 200)
             self.assertIn(
-                "<h3>Click on a User to get more details:</h3>", html)
+                "Pitt", html)
+
+    def test_tags_new(self):
+        with app.test_client() as client:
+            test = {"name": "TagName"}
+            resp = client.post("/tags/new",
+                               data=test, follow_redirects=True)
+            html = resp.get_data(as_text=True)
+
+            self.assertEqual(resp.status_code, 200)
+            self.assertIn(
+                "TagName", html)

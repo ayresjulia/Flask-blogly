@@ -15,31 +15,8 @@
 		<title>Edit User</title>
 	</head>
 	<body>
-		<!-- <h1>Edit a user</h1>
-		<form action="/users/{{user.id}}/edit" method="POST">
-			<input
-				type="text"
-				name="first_name"
-				placeholder="{{user.first_name}}"
-			/>
-			<input
-				type="text"
-				name="last_name"
-				placeholder="{{user.last_name}}"
-			/>
-			<input
-				type="text"
-				name="image_url"
-				placeholder="{{user.image_url}}"
-			/>
-
-			<button><a href="/users">Cancel</a></button>
-			<button type="submit">Save</button>
-        </form> -->
 		<form action="/users/{{user.id}}/edit" method="POST" class="col g-3">
-			<div class="col-md-5">
-				<h1>Edit a User</h1>
-			</div>
+			<h1>Edit User</h1>
 			<div class="col-md-4">
 				<label for="first_name" class="form-label">First Name</label>
 				<input
@@ -61,7 +38,7 @@
 				/>
 			</div>
 			<div class="col-4">
-				<label for="picture" class="form-label"
+				<label for="image_url" class="form-label"
 					>Profile Picture URL</label
 				>
 				<input
@@ -73,14 +50,17 @@
 				/>
 			</div>
 			<div class="col-12 button">
-				<button class="btn btn-light">
-					<a
-						style="text-decoration: none; color: rgb(26, 25, 25)"
-						href="/users"
+				<button class="btn btn-secondary">
+					<a style="text-decoration: none; color: white" href="/users"
 						>Cancel</a
 					>
 				</button>
-				<button class="btn btn-light" type="submit">Save</button>
+				<button class="btn btn-secondary" type="submit">Save</button>
+			</div>
+			<div class="col-12 go-back-btn">
+				<a class="home-btn" href="/users/{{user.id}}"
+					>Back to User page</a
+				>
 			</div>
 		</form>
 		<script

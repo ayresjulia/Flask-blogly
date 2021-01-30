@@ -1,5 +1,5 @@
 {
-    "python.pythonPath": "/Users/jayres/Desktop/flask-blogly/venv/bin/python3",
+    "python.pythonPath": "venv/bin/python",
     "python.testing.unittestArgs": [
         "-v",
         "-s",

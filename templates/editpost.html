@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="https://unpkg.com/bootstrap/dist/css/bootstrap.css" />
+		<link href="https://fonts.googleapis.com/css?family=Crimson+Text|Work+Sans:400,700" rel="stylesheet" />
+		<link rel="stylesheet" href="/static/app.css" />
+		<title>Edit User</title>
+	</head>
+	<body>
+		<form action="/posts/{{post.id}}/edit" method="POST" class="col g-3">
+			<h1>Edit Post</h1>
+			<div class="col-md-4">
+				<label for="title" class="form-label">Title</label>
+				<input type="text" name="title" class="form-control" id="title" placeholder="{{post.title}}" required />
+			</div>
+			<div class="col-md-4">
+				<label for="content" class="form-label">Content</label>
+				<textarea type="text" name="content" class="form-control" id="content" rows="3" placeholder="{{post.content}}" required></textarea>
+			</div>
+		</br>
+			<div class="form-group col-md-4">
+				<p>Check any tag to be included in this post:</p>
+				{% for tag in tags %}
+				<div>
+					<input class="form-input" type="checkbox" value="{{tag.id}}" id="tag_{{tag.id}}" {% if tag in post.tags %}checked{% endif %} name="tags" />
+					<label class="form-check-label" for="tag_{{tag.id}}"> {{tag.name}} </label>
+				</div>
+				{% endfor %}
+			</div>
+
+			<div class="col-12 button">
+				<button class="btn btn-secondary">
+					<a style="text-decoration: none; color: white" href="/users">Cancel</a>
+				</button>
+				<button class="btn btn-secondary" type="submit">Save</button>
+			</div>
+		</form>
+		<script
+			src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+			integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
+			crossorigin="anonymous"
+		></script>
+	</body>
+</html>

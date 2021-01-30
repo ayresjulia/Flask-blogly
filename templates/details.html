@@ -3,43 +3,34 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<link
-			rel="stylesheet"
-			href="https://unpkg.com/bootstrap/dist/css/bootstrap.css"
-		/>
-		<link
-			href="https://fonts.googleapis.com/css?family=Crimson+Text|Work+Sans:400,700"
-			rel="stylesheet"
-		/>
+		<link rel="stylesheet" href="https://unpkg.com/bootstrap/dist/css/bootstrap.css" />
+		<link href="https://fonts.googleapis.com/css?family=Crimson+Text|Work+Sans:400,700" rel="stylesheet" />
 		<link rel="stylesheet" href="/static/app.css" />
 		<title>User Details</title>
 	</head>
 	<body>
 		<div class="card" style="width: 18rem">
-			<img src="{{user.image_url}}" class="card-img-top img-fluid" />
 			<div class="card-body">
-				<h4 class="card-title">
-					{{user.first_name}} {{user.last_name}}
-				</h4>
-				<p class="card-text">
-					What a great person! Loves fishing, Harry Potter and Lorem
-					ipsum dolor.
-				</p>
+				<img style="height: 75px; width: 75px" src="{{user.image_url}}" class="card-img-top" />
+				<div>
+					<h1 class="card-title" style="background-color: white; color: rgb(75, 74, 74)">{{user.full_name}}</h1>
+				</div>
+
+				<h4 style="margin-top: 10px">Bio</h4>
+				<p class="card-text">What a great person! Loves fishing, Harry Potter and Lorem ipsum dolor.</p>
+				<h4>Posts</h4>
+				<ul>
+					{% for post in user.posts %}
+					<li>
+						<a href="/posts/{{post.id}}">{{post.title}} </a><small><i>created on {{post.friendly_date}}</i></small>
+					</li>
+					{% endfor %}
+				</ul>
 				<form>
-					<button
-						formaction="/users/{{user.id}}/edit"
-						class="btn btn-light"
-					>
-						Edit
-					</button>
-					<button
-						formaction="/users/{{user.id}}/delete"
-						formmethod="POST"
-						class="btn btn-light"
-					>
-						Delete
-					</button>
-					<div id="go-back-btn">
+					<button formaction="/users/{{user.id}}/edit" class="btn btn-secondary">Edit</button>
+					<button formaction="/users/{{user.id}}/delete" formmethod="POST" class="btn btn-secondary">Delete</button>
+					<button formaction="/users/{{user.id}}/posts/new" class="btn btn-secondary">Add Post</button>
+					<div class="go-back-btn">
 						<a class="home-btn" href="/users">Back to Home page</a>
 					</div>
 				</form>
